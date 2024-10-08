@@ -74,8 +74,8 @@ public:
 		sprite.setScale(130.f / texture.getSize().x, 170.f / texture.getSize().y);
 		sprite2.setScale(130.f / facedown_texture.getSize().x, 170.f / facedown_texture.getSize().y);
 
-		bounds = sprite.getGlobalBounds();
-		bounds.height = 50;
+		/*bounds = sprite.getGlobalBounds();
+		bounds.height = 50;*/
 
 		// Set initial state (face down)
 		//isFaceUp = false;
