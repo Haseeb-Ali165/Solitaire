@@ -7,8 +7,8 @@ enum class Suit {
 };
 
 enum class Rank {
-	ace = 1, two, three, four, five, six,
-	seven, eight, nine, ten, jack, queen, king
+	 two=1, three, four, five, six,
+	seven, eight, nine, ten, jack, queen, king,ace
 };
 
 class Pos { public:float x, y; };
@@ -50,7 +50,7 @@ private:
 	Rank rank;
 	bool isFaceUp;
 	sf::Vector2f pos;
-	
+	bool isBlack;
 
 public:
 	sf::Texture texture;
@@ -58,6 +58,10 @@ public:
 	sf::Sprite sprite;
 	sf::Sprite sprite2;  // for facedown texture
 	sf::FloatRect bounds;
+	int removedFromTableau;
+	int removedFromFoundation;
+
+	bool getIsBlack() { return isBlack; }
 
 	Card(Suit s, Rank r, bool i)
 		: suit(s), rank(r), isFaceUp(i) {
@@ -73,6 +77,11 @@ public:
 		// Set the desired size for both sprites
 		sprite.setScale(130.f / texture.getSize().x, 170.f / texture.getSize().y);
 		sprite2.setScale(130.f / facedown_texture.getSize().x, 170.f / facedown_texture.getSize().y);
+
+		if (s == Suit::hearts || s == Suit::diamonds)
+			isBlack = false;
+		else
+			isBlack = true;
 
 		/*bounds = sprite.getGlobalBounds();
 		bounds.height = 50;*/
