@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 using namespace std;
 
+int Tableau::nextPileNumber = 0;
 int main()
 {
 
